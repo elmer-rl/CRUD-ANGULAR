@@ -1,0 +1,37 @@
+<div class="body">
+    <div class="container pt-5">
+        <h1 class="title"> Esto es un CRUD en ANGULAR</h1>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4>Agregar nuevo jugador de futbol</h4>
+          <form>
+            <div class="form-group">
+                <label for="">Nombre :</label>
+                <input class="form-control nombre" [(ngModel)]="nuevoFutbolista.nombre" name="nombre" type="text">
+            </div>
+            <div class="form-group">
+                <label for="">Pais :</label>
+                <input class="form-control" [(ngModel)]="nuevoFutbolista.pais" name="pais" type="text">
+            </div>
+            <input type="submit" (click)="agregar()" value="Agregar nuevo Futblolista">
+            <button type="submit" *ngIf="nuevoFutbolista.id !== 0" class="btn  btn-danger"  (click)="eliminar()"> eliminar </button>
+          </form>
+        </div>
+      </div>
+
+
+
+        <div class="card mt-5 mb4">
+          <div class="card-body">
+            <h4>LISTA DE JUGADORES DE FUTBOL</h4>
+            <ul class="list-group">
+              <li *ngFor="let futbolista of futbolistaArray" class="list-group-item list-group-item-action" (click)="editar(futbolista)" [class.active]="futbolista == nuevoFutbolista">
+              {{futbolista.nombre}} es del pais de {{futbolista.pais}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
+
